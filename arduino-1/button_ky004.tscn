@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b8nnp7meprwj2"]
 
-[ext_resource type="Script" uid="uid://c6m2chd0plt3c" path="res://Arduino1.cs" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://c6m2chd0plt3c" path="res://Arduino1.cs" id="1_xvj4j"]
 
 [node name="Node2D" type="Node2D" unique_id=1968580393]
-script = ExtResource("1_wtcfe")
+script = ExtResource("1_xvj4j")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=950460407]
 offset_right = 1253.0
