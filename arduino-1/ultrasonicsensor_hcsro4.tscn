@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cedji3ma3anjm"]
+
+[ext_resource type="Script" uid="uid://brj0yr4e4a6fw" path="res://UltrasonicsensorHcsro4.cs" id="1_0na88"]
+
+[node name="Node2D" type="Node2D" unique_id=1891582026]
+script = ExtResource("1_0na88")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=93612762]
+offset_right = 1176.0
+offset_bottom = 672.0
+theme_override_font_sizes/normal_font_size = 60
