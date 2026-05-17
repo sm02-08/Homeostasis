@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://g3xeb13xehhv"]
+
+[ext_resource type="Script" uid="uid://c3xc7vgomy30u" path="res://memory_game.gd" id="1_kfi1n"]
+
+[node name="MemoryGame" type="Control" unique_id=384205707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kfi1n")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=2122119900]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Button_0" type="Button" parent="GridContainer" unique_id=1117527686]
+layout_mode = 2
+
+[node name="Button_1" type="Button" parent="GridContainer" unique_id=255579940]
+layout_mode = 2
+
+[node name="Button_2" type="Button" parent="GridContainer" unique_id=977051369]
+layout_mode = 2
+
+[node name="Button_3" type="Button" parent="GridContainer" unique_id=193176870]
+layout_mode = 2
+
+[node name="Button_4" type="Button" parent="GridContainer" unique_id=1798902309]
+layout_mode = 2
+
+[node name="Button_5" type="Button" parent="GridContainer" unique_id=377438579]
+layout_mode = 2
+
+[node name="Button_6" type="Button" parent="GridContainer" unique_id=1515350326]
+layout_mode = 2
+
+[node name="Button_7" type="Button" parent="GridContainer" unique_id=1010148802]
+layout_mode = 2
+
+[node name="Button_8" type="Button" parent="GridContainer" unique_id=383858186]
+layout_mode = 2
+
+[node name="Button_9" type="Button" parent="GridContainer" unique_id=2066865605]
+layout_mode = 2
+
+[node name="Button_10" type="Button" parent="GridContainer" unique_id=519966547]
+layout_mode = 2
+
+[node name="Button_11" type="Button" parent="GridContainer" unique_id=1579845910]
+layout_mode = 2
+
+[node name="Button_12" type="Button" parent="GridContainer" unique_id=1288253665]
+layout_mode = 2
+
+[node name="Button_13" type="Button" parent="GridContainer" unique_id=2111683332]
+layout_mode = 2
+
+[node name="Button_14" type="Button" parent="GridContainer" unique_id=892758091]
+layout_mode = 2
+
+[node name="Button_15" type="Button" parent="GridContainer" unique_id=1250739956]
+layout_mode = 2
+
+[node name="FlashTimer" type="Timer" parent="." unique_id=1838495759]
+wait_time = 2.0
+one_shot = true
+
+[node name="StatusLabel" type="Label" parent="." unique_id=1779912835]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

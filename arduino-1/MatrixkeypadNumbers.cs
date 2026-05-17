@@ -13,7 +13,7 @@ public partial class MatrixkeypadNumbers : Node2D
 		text = GetNode<RichTextLabel>("RichTextLabel"); 
 		
 		serialPort = new SerialPort(); 
-		serialPort.PortName = "COM4"; // adjusted to actual device port on arduino ide
+		serialPort.PortName = "COM5"; // adjusted to actual device port on arduino ide
 		serialPort.BaudRate = 9600; 
 		serialPort.ReadTimeout = 50; 
 		

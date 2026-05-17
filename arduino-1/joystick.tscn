@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b66o2mxl65shw"]
+
+[ext_resource type="Script" uid="uid://dnwtj7slf235f" path="res://Joystick.cs" id="1_dm1l1"]
+[ext_resource type="Texture2D" uid="uid://cm3kp2ycfh1f6" path="res://icon.svg" id="2_413m4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhikm"]
+atlas = ExtResource("2_413m4")
+
+[node name="Joystick" type="Node2D" unique_id=221421407]
+script = ExtResource("1_dm1l1")
+
+[node name="GodotSprite" type="Sprite2D" parent="." unique_id=1142669456]
+position = Vector2(552, 291)
+scale = Vector2(0.6953125, 0.6953125)
+texture = SubResource("AtlasTexture_jhikm")

@@ -12,7 +12,7 @@ public partial class HumidityDht11 : Node2D
 		text = GetNode<RichTextLabel>("RichTextLabel"); 
 		
 		serialPort = new SerialPort(); 
-		serialPort.PortName = "COM4"; // make sure this matches the port in arduino ide
+		serialPort.PortName = "COM5"; // make sure this matches the port in arduino ide
 		serialPort.BaudRate = 9600; 
 		
 		try
@@ -33,7 +33,7 @@ public partial class HumidityDht11 : Node2D
 		{
 			string serialMessage = serialPort.ReadExisting(); 
 
-			if (serialMessage.Contains("ALERT_ABOVE_80"))
+			if (serialMessage.Contains("ALERT_ABOVE_10"))
 			{
 				text.Text = "Temperature above 80F has been hit.";
 			}

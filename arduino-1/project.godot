@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="arduino1"
-run/main_scene="uid://b8nnp7meprwj2"
+run/main_scene="uid://dr04310sqlqxc"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

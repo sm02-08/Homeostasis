@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dr04310sqlqxc"]
+
+[ext_resource type="PackedScene" uid="uid://b8nnp7meprwj2" path="res://button_ky004.tscn" id="1_bfipm"]
+[ext_resource type="PackedScene" uid="uid://r6hqwf5oxs1k" path="res://humidity_dht_11.tscn" id="2_6lgnl"]
+[ext_resource type="PackedScene" uid="uid://bcfjpyri1jd2k" path="res://matrixkeypad_numbers.tscn" id="3_pgddy"]
+[ext_resource type="PackedScene" uid="uid://cedji3ma3anjm" path="res://ultrasonicsensor_hcsro4.tscn" id="4_5liib"]
+
+[node name="MainTest" type="Node2D" unique_id=561026660]
+
+[node name="Button_KY004" parent="." unique_id=1968580393 instance=ExtResource("1_bfipm")]
+
+[node name="HumidityDHT11" parent="." unique_id=1404972887 instance=ExtResource("2_6lgnl")]
+
+[node name="MatrixKeypad" parent="." unique_id=966877125 instance=ExtResource("3_pgddy")]
+
+[node name="UltrasonicSensor" parent="." unique_id=1891582026 instance=ExtResource("4_5liib")]
