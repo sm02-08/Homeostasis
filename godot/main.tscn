@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://vsw00ddi52r6" path="res://minigames/popups/debris_motion_minigame.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://btrsvoph22arc" path="res://assets/HomeostasisBackground.png" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://boq6ap4r03xjg" path="res://assets/HomeostasisOverlay.png" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b0icbgochbrqf" path="res://minigames/ui/pressure_game.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://yjj0hlrkst1f" path="res://minigames/ui/health_ui.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dtw2a33qipnn0" path="res://minigames/ui/barcode_game.tscn" id="4_1bvp3"]
 
@@ -15,6 +16,12 @@ z_index = -1
 offset_right = 1902.0001
 offset_bottom = 1077.0
 texture = ExtResource("2_h2yge")
+
+[node name="PressureGame" parent="." unique_id=1771582636 instance=ExtResource("3_272bh")]
+offset_left = 420.0
+offset_top = 238.0
+offset_right = 460.0
+offset_bottom = 278.0
 
 [node name="Overlay" type="TextureRect" parent="." unique_id=1890372018]
 offset_right = 1902.0001

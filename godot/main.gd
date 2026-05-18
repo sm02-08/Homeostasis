@@ -4,6 +4,7 @@ extends Node
 @onready var health_ui: Control = $HealthUI
 @onready var barcode_game: Control = $BarcodeGame
 @onready var debris_minigame: Control = $DebrisMotionMinigame
+@onready var pressure_game: Control = $PressureGame
 
 func _ready() -> void:
 	# 1. Listen to the GDScript Barcode game signals
@@ -14,7 +15,7 @@ func _ready() -> void:
 	# 2. Listen to the C# Debris minigame signal
 	# C# signals maintain their exact spelling from the C# code
 	debris_minigame.DepleteHeart.connect(_on_deplete_heart_received)
-
+	pressure_game.DepleteHeart.connect(_on_deplete_heart_received)
 
 # --- SIGNAL CALLBACKS ---
 

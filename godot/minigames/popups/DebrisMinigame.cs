@@ -14,7 +14,7 @@ public partial class DebrisMinigame : Control
 	private TextureRect       _textureRect;  // The danger window when debris hits
 
 	// --- Tuning constants ---
-	private const float IdleSeconds      = 10f;  // Time between debris events
+	private const float IdleSeconds      = 20f;  // Time between debris events
 	private const float CountdownSeconds = 15f;   // Time to clear debris before death
 	private const float ProgressPerMotion = 34f; // How much each motion pulse fills the bar (0–100)
 
