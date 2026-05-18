@@ -13,7 +13,7 @@ public partial class CentralHardwareHub : Node2D
 		telemetryList = GetNode<RichTextLabel>("RichTextLabel");
 
 		serialPort = new SerialPort();
-		serialPort.PortName = "COM4"; // Check your actual port inside Arduino IDE (e.g., COM3, COM4)!
+		serialPort.PortName = "COM5"; // Check your actual port inside Arduino IDE (e.g., COM3, COM4)!
 		serialPort.BaudRate = 9600;
 		serialPort.ReadTimeout = 20; // Short timeout keeps the game loop running fast
 
