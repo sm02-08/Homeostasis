@@ -4,24 +4,35 @@ using System.IO.Ports;
 
 public partial class CentralHardwareHub : Node2D
 {
+	// --- Signals that any scene can subscribe to ---
+	[Signal] public delegate void MotionDetectedEventHandler();
+	[Signal] public delegate void MotionClearedEventHandler();
+	[Signal] public delegate void TelemetryUpdatedEventHandler(
+		string motionStatus, string temperature, string joyX, string joyY);
+
 	SerialPort serialPort;
 	RichTextLabel telemetryList;
 
+	// Track last motion state so we only fire signals on CHANGES, not every frame
+	private bool _lastMotionState = false;
+
 	public override void _Ready()
 	{
-		// Make sure this path matches your exact RichTextLabel node name in your scene tree!
-		telemetryList = GetNode<RichTextLabel>("RichTextLabel");
+		// This label is optional now — you can keep it for debugging or remove it
+		// If you keep the label in the scene, this works. If not, guard it:
+		telemetryList = GetNodeOrNull<RichTextLabel>("RichTextLabel");
 
 		serialPort = new SerialPort();
-		serialPort.PortName = "COM4"; // Check your actual port inside Arduino IDE (e.g., COM3, COM4)!
+		serialPort.PortName = "COM4"; // ← Update to your port
 		serialPort.BaudRate = 9600;
-		serialPort.ReadTimeout = 20; // Short timeout keeps the game loop running fast
+		serialPort.ReadTimeout = 20;
 
-		try 
+		try
 		{
 			serialPort.Open();
+			GD.Print("CentralHardwareHub: Serial port opened successfully.");
 		}
-		catch (Exception e) 
+		catch (Exception e)
 		{
 			GD.PrintErr($"Serial pipeline failed to initialize: {e.Message}");
 		}
@@ -31,61 +42,62 @@ public partial class CentralHardwareHub : Node2D
 	{
 		if (serialPort == null || !serialPort.IsOpen) return;
 
-		// Process all incoming telemetry streams
 		while (serialPort.BytesToRead > 0)
 		{
 			try
 			{
-				// Read a complete line up to the newline character and strip spaces
 				string rawPacket = serialPort.ReadLine().Trim();
 				string[] data = rawPacket.Split(',');
 
-				// Ensure all 4 expected data streams arrived intact
 				if (data.Length == 4)
 				{
 					string motionStatus = data[0];
-					string temperature = data[1];
-					string joyX = data[2];
-					string joyY = data[3];
+					string temperature  = data[1];
+					string joyX        = data[2];
+					string joyY        = data[3];
 
-					// Format the incoming data into a clean list layout
-					string listOutput = "-- LIVE HARDWARE HUB --\n\n";
-					
-					// Format Motion Status with colors
-					if (motionStatus == "MOTION_DETECTED")
+					// --- Emit broad telemetry signal every update ---
+					EmitSignal(SignalName.TelemetryUpdated, motionStatus, temperature, joyX, joyY);
+
+					// --- Only emit motion signals when state CHANGES ---
+					bool motionNow = (motionStatus == "MOTION_DETECTED");
+
+					if (motionNow && !_lastMotionState)
 					{
-						listOutput += "* [color=red]Motion Status: MOTION DETECTED!\n";
+						EmitSignal(SignalName.MotionDetected);
 					}
-					else
+					else if (!motionNow && _lastMotionState)
 					{
-						listOutput += "* Motion Status: Stable (No Motion)\n";
+						EmitSignal(SignalName.MotionCleared);
 					}
 
-					listOutput += $"* Temperature: {temperature}°F\n";
-					listOutput += $"* Joystick X-Axis: {joyX} / 1023\n";
-					listOutput += $"* Joystick Y-Axis: {joyY} / 1023\n";
+					_lastMotionState = motionNow;
 
-					// Push the entire list update to the screen at once
-					telemetryList.Text = listOutput;
+					// --- Update debug label if it exists ---
+					if (telemetryList != null)
+					{
+						string listOutput = "-- LIVE HARDWARE HUB --\n\n";
+						listOutput += motionNow
+							? "* [color=red]Motion Status: MOTION DETECTED![/color]\n"
+							: "* Motion Status: Stable (No Motion)\n";
+						listOutput += $"* Temperature: {temperature}°F\n";
+						listOutput += $"* Joystick X-Axis: {joyX} / 1023\n";
+						listOutput += $"* Joystick Y-Axis: {joyY} / 1023\n";
+						telemetryList.Text = listOutput;
+					}
 				}
 			}
-			catch (TimeoutException) 
-			{
-				// Normal behavior when catching trailing serial clock cycles
-			}
-			catch (Exception e) 
+			catch (TimeoutException) { }
+			catch (Exception e)
 			{
 				GD.PrintErr($"Packet parsing drop: {e.Message}");
 			}
 		}
 	}
 
-	// Always release the COM port when exiting the game so it doesn't lock up
 	public override void _ExitTree()
 	{
 		if (serialPort != null && serialPort.IsOpen)
-		{
 			serialPort.Close();
-		}
 	}
 }
