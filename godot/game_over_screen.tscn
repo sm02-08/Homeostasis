@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://1rwck0pj0ur"]
+
+[ext_resource type="Script" uid="uid://bpl45lwf432to" path="res://game_over_screen.gd" id="1_247v2"]
+[ext_resource type="Texture2D" uid="uid://oql7xasbjmii" path="res://assets/Game Over.png" id="2_5ppj0"]
+
+[node name="GameOverScreen" type="Control" unique_id=858659694]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_247v2")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1203767184]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5ppj0")
+
+[node name="TimeLabel" type="Label" parent="." unique_id=577856259]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 662.0
+offset_right = 1024.0
+offset_bottom = 708.0
+theme_override_colors/font_color = Color(0.8392157, 0.45490196, 0.101960786, 1)
+theme_override_font_sizes/font_size = 38
+text = "Your time:"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="." unique_id=300592528]
+layout_mode = 0
+offset_left = 831.0
+offset_top = 772.0
+offset_right = 1095.1072
+offset_bottom = 859.0
+theme_override_colors/font_color = Color(0.8392157, 0.45490196, 0.101960786, 1)
+theme_override_font_sizes/font_size = 40
+text = "Restart?"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

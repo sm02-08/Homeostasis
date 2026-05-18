@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0icbgochbrqf" path="res://minigames/ui/pressure_game.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://yjj0hlrkst1f" path="res://minigames/ui/health_ui.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dtw2a33qipnn0" path="res://minigames/ui/barcode_game.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://1rwck0pj0ur" path="res://game_over_screen.tscn" id="8_5vw27"]
 
 [node name="Main" type="Node2D" unique_id=1604128488]
 script = ExtResource("1_7mycd")
@@ -42,3 +43,6 @@ offset_right = 1280.0
 offset_bottom = 314.0
 
 [node name="DebrisMotionMinigame" parent="." unique_id=1771810506 instance=ExtResource("1_ig7tw")]
+
+[node name="GameOverScreen" parent="." unique_id=858659694 instance=ExtResource("8_5vw27")]
+visible = false
