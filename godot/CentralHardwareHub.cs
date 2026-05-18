@@ -15,7 +15,6 @@ public partial class CentralHardwareHub : Node2D
 	RichTextLabel telemetryList;
 
 	private bool _lastMotionState = false;
-	// REMOVED: _lastButtonState — was only needed for ButtonPressed/ButtonReleased edge detection
 
 	public override void _Ready()
 	{
@@ -23,7 +22,7 @@ public partial class CentralHardwareHub : Node2D
 		GD.Print("CentralHardwareHub: Initializing...");
 
 		serialPort = new SerialPort();
-		serialPort.PortName = "COM4";
+		serialPort.PortName = "COM6"; // ← Update to your port
 		serialPort.BaudRate = 9600;
 		serialPort.ReadTimeout = 20;
 
@@ -94,14 +93,18 @@ public partial class CentralHardwareHub : Node2D
 					EmitSignal(SignalName.TelemetryUpdated, motionStatus, temperature, joyX, joyY, buttonState);
 
 					bool motionNow = (motionStatus == "MOTION_DETECTED");
+
 					if (motionNow && !_lastMotionState)
 					{
 						GD.Print("CentralHardwareHub: Signal Fired -> MotionDetected");
 						EmitSignal(SignalName.MotionDetected);
+					}
 					else if (!motionNow && _lastMotionState)
 					{
 						GD.Print("CentralHardwareHub: Signal Fired -> MotionCleared");
 						EmitSignal(SignalName.MotionCleared);
+					}
+
 					_lastMotionState = motionNow;
 
 					if (telemetryList != null)
@@ -117,6 +120,7 @@ public partial class CentralHardwareHub : Node2D
 						listOutput += (buttonState == "1")
 							? "* [color=green]Arcade Button: PRESSED![/color]\n"
 							: "* Arcade Button: Released\n";
+							
 						telemetryList.Text = listOutput;
 					}
 				}
