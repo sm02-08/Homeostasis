@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://cmbwwdkmn1vvj"]
 
-[ext_resource type="Script" uid="uid://3r6646enblod" path="res://CentralHardwareHub.cs" id="1_n8fke"]
+[ext_resource type="Script" uid="uid://3r6646enblod" path="res://CentralHardwareHub.cs" id="1_nl1wb"]
 
 [node name="CentralHardwareHub" type="Node2D" unique_id=1654966924]
-script = ExtResource("1_n8fke")
+script = ExtResource("1_nl1wb")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=502810168]
 offset_right = 1158.0
 offset_bottom = 654.0
 theme_override_font_sizes/normal_font_size = 60
-text = "text"
