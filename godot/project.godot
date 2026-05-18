@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="arduino1"
-run/main_scene="uid://cmbwwdkmn1vvj"
+run/main_scene="uid://dd7cgt166bco"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,15 @@ config/icon="res://icon.svg"
 
 CentralHardwareHub="*uid://cmbwwdkmn1vvj"
 
+[display]
+
+window/size/viewport_width=1902
+window/size/viewport_height=1077
+
 [dotnet]
 
 project/assembly_name="arduino1"
+
+[gui]
+
+theme/custom_font="uid://c3bps5wkwpu6w"

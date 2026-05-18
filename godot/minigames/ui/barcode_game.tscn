@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dtw2a33qipnn0"]
+
+[ext_resource type="Script" uid="uid://dljlpywfm0a5v" path="res://minigames/ui/barcode_game.gd" id="1_7ifdg"]
+
+[node name="BarcodeGame" type="Control" unique_id=1255775380]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7ifdg")
+
+[node name="LayoutContainer" type="HBoxContainer" parent="." unique_id=1000500587]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CodesRemainingLabel" type="Label" parent="LayoutContainer" unique_id=1359785505]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.5254902, 0.11764706, 0.59607846)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 32
+text = "SCAN X MORE BARCODES 
+FOR AN EXTRA LIFE "
+
+[node name="TargetBarcodeLabel" type="Label" parent="LayoutContainer" unique_id=785733800]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.5254902, 0.11764706, 1)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 32
+text = "NEXT:
+5"
+horizontal_alignment = 2

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://yjj0hlrkst1f"]
+
+[ext_resource type="Texture2D" uid="uid://u6g2grw13aex" path="res://assets/Heart.png" id="1_gpgui"]
+[ext_resource type="Script" uid="uid://tepvjh74ebax" path="res://minigames/ui/health_ui.gd" id="1_yjqgg"]
+
+[node name="HealthUI" type="Control" unique_id=2100757537]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yjqgg")
+
+[node name="Heart3" type="TextureRect" parent="." unique_id=258018142]
+layout_mode = 0
+offset_right = 75.0
+offset_bottom = 65.0
+texture = ExtResource("1_gpgui")
+
+[node name="Heart2" type="TextureRect" parent="." unique_id=414967570]
+layout_mode = 0
+offset_left = 91.0
+offset_right = 166.0
+offset_bottom = 65.0
+texture = ExtResource("1_gpgui")
+
+[node name="Heart1" type="TextureRect" parent="." unique_id=1280763331]
+layout_mode = 0
+offset_left = 181.0
+offset_right = 256.0
+offset_bottom = 65.0
+texture = ExtResource("1_gpgui")
