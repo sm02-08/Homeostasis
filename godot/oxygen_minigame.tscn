@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cm2rfkbb6ga1u"]
+
+[ext_resource type="Script" uid="uid://dj4on05w4cdjg" path="res://oxygen_minigame.gd" id="1_mskvn"]
+
+[node name="OxygenMinigame" type="Node2D" unique_id=1248617000]
+script = ExtResource("1_mskvn")
+
+[node name="OxygenBar" type="ProgressBar" parent="." unique_id=1393825568]
+offset_left = 39.0
+offset_top = 145.0
+offset_right = 43.0
+offset_bottom = 172.0
+max_value = 30.0
+step = 1.0
+
+[node name="StatusLabel" type="Label" parent="." unique_id=1514812865]
+offset_left = 25.0
+offset_top = 185.0
+offset_right = 65.0
+offset_bottom = 208.0
+text = "Keep pressing"
+
+[node name="PressCountLabel" type="Label" parent="." unique_id=1391527459]
+offset_left = 25.0
+offset_top = 111.0
+offset_right = 68.0
+offset_bottom = 134.0
+text = "30/30"
